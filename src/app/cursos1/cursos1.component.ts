@@ -7,7 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class Cursos1Component implements OnInit {
 
-  constructor() { }
+  animeList: string[] = ['Naruto', 'Bleach', 'Dragon Ball'];
+
+  constructor() {
+    for (let i = 0; i < this.animeList.length; i++) {
+      const animes = this.animeList[i];
+    }
+  }
 
   ngOnInit() {
   }
