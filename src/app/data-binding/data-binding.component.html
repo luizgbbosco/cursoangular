@@ -6,80 +6,85 @@
     <p>Resultado de 1 + 1 = {{ 1 + 1 }}</p>
     <p>Resultado de 1 + 1 não é: {{ 1 + 1 + getValor() }}</p>
     <p>Gosto do curso: {{ cursoAngular && getCurso() }}</p>
-  </article>
+  </article><br>
 
   <article>
     <h3>Property binding</h3>
     <img src="{{ urlImagem }}" width="200">
-  </article>
+  </article><br>
 
   <article>
     <h3>Class e Style Binding</h3>
     <div>
       Selecione uma classe:
       <select #classe (change)="0">
-        <option value="alert-sucess">Sucesso</option>
+        <option value="alert-success">Sucesso</option>
         <option value="alert-info">Info</option>
         <option value="alert-warning">Alerta</option>
         <option value="alert-danger">Erro</option>
       </select>
     </div>
-      <br><br>
+    <br><br>
 
-      <div class="alert {{ classe.value}}">
-        Texto selicionado no combobox.
-      </div> 
+    <div class="alert {{ classe.value}}">
+      Texto selicionado no combobox.
+    </div>
 
-      <div class="alert" role="alert" 
-      [class.alert-sucess]="classe.value == 'alert-sucess'">Sucesso</div>
+    <div class="alert alert-success" role="alert" [class.alert-success]="classe.value == 'alert-success'">Sucesso</div>
 
-      <div class="alert alert-info" role="alert"
-      [class.alert-info]="classe.value == 'alert-info'"> Informação </div>
+    <div class="alert alert-info" role="alert" [class.alert-info]="classe.value == 'alert-info'"> Informação </div>
 
-      <div class="alert alert-warning" role="alert"
-      [class.alert-warning] = "classe.value == 'alert-warning'"> Alertado </div>
+    <div class="alert alert-warning" role="alert" [class.alert-warning]="classe.value == 'alert-warning'"> Alertado </div>
 
-      <div class="alert alert-danger" role="alert"
-      [class.alert-danger] = "classe.value == 'alert-danger'"> Errou </div>
+    <div class="alert alert-danger" role="alert" [class.alert-danger]="classe.value == 'alert-danger'"> Errou </div>
 
-      <div class="alert alert-danger" role="alert"
-      [style.display]="classe.value == 'alert-danger' ? 'block' : 'none'">
-        Esse texto aparece caso dê erro.
-      </div>
-  </article>
+    <div class="alert alert-danger" role="alert" [style.display]="classe.value == 'alert-danger' ? 'block' : 'none'">
+      Esse texto aparece caso dê erro.
+    </div>
+  </article><br><br>
 
   <article>
     <h3>Event Binding</h3>
     <button (click)="botaoClicado()" class="btn btn-primary"> Clique </button>
 
     <br><br>
-    <input #valor type="text" (keyup)="onKeyUp($event)"
-    (keyup.enter) = "salvarValor(valor.value)"
-    (blur) = "salvarValor(valor.value)"/>
-    
+    <input #valor type="text" (keyup)="onKeyUp($event)" (keyup.enter)="salvarValor(valor.value)" (blur)="salvarValor(valor.value)"
+    />
+
     <p>Valor atual: {{ valorAtual }}</p>
     <p>Valor salvo: {{ valorSalvo }}</p>
 
-    <span
-      (mouseover) = "onMouseOverOut()"
-      (mouseout) = "onMouseOverOut()"
-      [class.highlight] = "isMouseOver"
-      >
+    <span (mouseover)="onMouseOverOut()" (mouseout)="onMouseOverOut()" [class.highlight]="isMouseOver">
       Passe o mouse aqui</span>
-    
-  </article>
+
+  </article><br>
 
   <article>
     <h3>Two-way data binding</h3>
     <div>
-      <input type="text" [value]= "nome"
-      (input) = "nome = $event.target.value"/>
-       
-      <input type="text" [ngModel]= "nome"
-      (ngModelChange) = "nome = $event"/>
+      <input type="text" [value]="nome" (input)="nome = $event.target.value" />
+
+      <!-- <input type="text" [ngModel] = "nome"
+      (ngModelChange) = "nome = $event.target.value"/>  -->
 
       <p>Você digitou: {{ nome }}</p>
     </div>
-  </article>
 
-</section> 
+    <div>
+      <input type="text" [(ngModel)]="pessoa.nome" required/>
+      <input type="number" [(ngModel)]="pessoa.idade" required/>
+      <p>Meu nome é {{ pessoa.nome }} e tenho {{ pessoa.idade }} anos</p>
+    </div>
+  </article><br>
+
+  <article align="center">
+    <div>
+      <button type="btn btn-primary" (click)="decrementa()">-</button>
+      <input type="text" [value] = "valorbtn" readonly>
+      <button type="btn btn-primary"(click)="incrementa()">+</button>
+      <p>Mostrar: {{ valorbtn }}</p>
+    </div>
+  </article><br>
+  
+
+</section>

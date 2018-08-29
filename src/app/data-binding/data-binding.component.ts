@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { Component, OnInit, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-data-binding',
@@ -7,14 +8,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DataBindingComponent implements OnInit {
 
+  // Declarações
   url = 'www.google.com.br';
   urlImagem = 'https://picsum.photos/200';
   cursoAngular = true;
   valorAtual = '';
   valorSalvo = '';
   isMouseOver = false;
-  nome = 'abc';
+  nome = 'Luiz';
 
+  pessoa = {
+    nome : 'Luiz',
+    idade : '21'
+  };
+
+  valor = 0;
+  valorbtn = 0;
+
+  // Funções utilizadas
   getValor() {
     return 1;
   }
@@ -37,6 +48,14 @@ export class DataBindingComponent implements OnInit {
 
   onMouseOverOut() {
     this.isMouseOver = !this.isMouseOver;
+  }
+
+  incrementa() {
+    this.valorbtn++;
+  }
+
+  decrementa() {
+    this.valorbtn--;
   }
 
   constructor() { }
