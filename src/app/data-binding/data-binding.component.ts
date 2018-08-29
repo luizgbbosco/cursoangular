@@ -57,7 +57,6 @@ export class DataBindingComponent implements OnInit {
     this.campoValorInput.nativeElement.value++;
   }
 
-
   decrementa() {
     this.campoValorInput.nativeElement.value--;
   }
