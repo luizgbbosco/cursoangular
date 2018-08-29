@@ -8,10 +8,12 @@
     <p>Gosto do curso: {{ cursoAngular && getCurso() }}</p>
   </article><br>
 
+
   <article>
-    <h3>Property binding</h3>
+    <h3>Prop erty binding</h3>
     <img src="{{ urlImagem }}" width="200">
   </article><br>
+
 
   <article>
     <h3>Class e Style Binding</h3>
@@ -43,6 +45,7 @@
     </div>
   </article><br><br>
 
+
   <article>
     <h3>Event Binding</h3>
     <button (click)="botaoClicado()" class="btn btn-primary"> Clique </button>
@@ -56,8 +59,8 @@
 
     <span (mouseover)="onMouseOverOut()" (mouseout)="onMouseOverOut()" [class.highlight]="isMouseOver">
       Passe o mouse aqui</span>
-
   </article><br>
+
 
   <article>
     <h3>Two-way data binding</h3>
@@ -77,14 +80,14 @@
     </div>
   </article><br>
 
+
   <article align="center">
     <div>
       <button type="btn btn-primary" (click)="decrementa()">-</button>
-      <input type="text" [value] = "valorbtn" readonly>
+      <input type="text" [value] = "valorbtn" readonly #campoInput>
       <button type="btn btn-primary"(click)="incrementa()">+</button>
       <p>Mostrar: {{ valorbtn }}</p>
     </div>
   </article><br>
-  
 
 </section>

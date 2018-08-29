@@ -1,5 +1,5 @@
 import { FormsModule } from '@angular/forms';
-import { Component, OnInit, Input, Output } from '@angular/core';
+import { Component, OnInit, Input, Output, ViewChild, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-data-binding',
@@ -24,6 +24,8 @@ export class DataBindingComponent implements OnInit {
 
   valor = 0;
   valorbtn = 0;
+
+  @ViewChild('campoInput') campoValorInput: ElementRef;
 
   // Funções utilizadas
   getValor() {
@@ -51,11 +53,13 @@ export class DataBindingComponent implements OnInit {
   }
 
   incrementa() {
-    this.valorbtn++;
+    // console.log(this.campoValorInput.nativeElement.value);
+    this.campoValorInput.nativeElement.value++;
   }
 
+
   decrementa() {
-    this.valorbtn--;
+    this.campoValorInput.nativeElement.value--;
   }
 
   constructor() { }
