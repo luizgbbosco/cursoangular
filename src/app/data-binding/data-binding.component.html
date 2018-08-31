@@ -90,4 +90,29 @@
     </div>
   </article><br>
 
+  <article>
+    <div>
+      <h3>Diretivas</h3>
+      <p *ngIf="cursos.length > 0">Lista de cursos aqui</p>
+      <li *ngFor = "let curso of cursos">
+        {{curso}}
+      </li>
+      <p *ngIf="cursos.length == 0">Não existem cursos </p>
+    </div>
+
+    <nav class="navbar navbar-dark bg-primary">
+        <div class="nav navbar-nav">
+          <a class="nav-item nav-link"
+             [class.active]="aba == 'home'"
+             (click)="aba = 'home'">Home</a>
+          <a class="nav-item nav-link"
+            [class.active]="aba == 'mapa'"
+            (click)="aba = 'mapa'">Mapa</a>
+          <a class="nav-item nav-link"
+          [class.active]="aba == 'lista'"
+          (click)="aba = 'lista'">Lista</a>
+        </div>
+      </nav>
+  </article>
+
 </section>

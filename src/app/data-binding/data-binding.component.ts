@@ -25,6 +25,8 @@ export class DataBindingComponent implements OnInit {
   valor = 0;
   valorbtn = 0;
 
+  cursos: string[] = ['Angular', 'Javascript', 'nodeJS'];
+
   @ViewChild('campoInput') campoValorInput: ElementRef;
 
   // Funções utilizadas
@@ -61,7 +63,11 @@ export class DataBindingComponent implements OnInit {
     this.campoValorInput.nativeElement.value--;
   }
 
-  constructor() { }
+  constructor() {
+    for (let i = 0; i < this.cursos.length; i++) {
+      const curso = this.cursos[i];
+    }
+  }
 
   ngOnInit() {
   }
